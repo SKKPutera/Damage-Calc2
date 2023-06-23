@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <h1 style="color:tomato; text-align: center; width: 100%; display:inline-block;">Pokemon Damage Calculator</h1>
+    <!--all levels=50 no items, no weather, no abilities-->
+    <style>
+
+    </style>
+</head>
+
+<body onLoad="fetchKantoPokemon(); fetchnatures()">
+    <select id="Pkmn1"></select>
+    <select id="Pkmn2" style="float: right"></select>
+    <p><select id="Move1"></select><select id="Move2" style="float: right"></select></p>
+    <select id="nature1"></select><select id="nature2" style="float:right"></select>
+
+    <p><button type="button" onclick="ddlselect()">I Choose You
+        </button>
+
+        <!--x=((y+2a+(b/4))*c/100)+5)*d-->
+        <!--x=final stat, IV=y, Base=a, EV=b, level=c, Nature=d-->
+        <!--x=((y+2a+b/4+100)*c/100)+10-->
+        <button type="button" onclick="ddlselect2()" left="1000px" style="float: right">I Choose You
+        </button>
+    </p>
+
+    <p><button onclick="cancel1()">Cancel</button>
+        <button onclick="cancel2()" style="float: right">Cancel</button>
+        </div>
+    </p>
+
+    <p>
+        <img id="img1" width="20%" />
+        <img id="img2" width="20%" style="float:right" />
+    </p>
+    <p><br>
+    <p style="text-align: right; width: 24%; display:inline-block;">Pokemon<input id="txtvalue" type="text"></input></p>
+    <p style="text-align: right; width: 37%; display:inline-block;"></p>
+    <p style="text-align: left; width: 38%; display:inline-block;">Pokemon<input id="txtvalue2" type="text" /></p>
+    <p style="text-align: right; width: 24%; display:inline-block;">Levels<input value="100" type="number" id="lvl1"
+            min="1" max="100" onkeyup="if(value<1) value=1;if(value>100) value=100;" /></p>
+    <p style="text-align: right; width: 43.5%; display:inline-block;"></p>
+    <p style="text-align: left; width: 21.5%; display:inline-block;">Levels<input value="100" type="number" id="lvl2"
+            min="1" max="100" onkeyup="if(value<1) value=1;if(value>100) value=100;" /></p>
+    <p style="text-align: left; width: 49%; display:inline-block;">Stats<input id="stats" type="text" /></p>
+    <p style="text-align: right; width: 50%; display:inline-block;"> Stats<input id="stats2" type="text" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block;">HP<input id="hp" type="text" /> </p>
+    <p style="text-align: right; width: 17%; display:inline-block">IVHP<input value="31" type="number" id="ivhp1"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVHP<input value="0" type="number" id="evhp1" min="0"
+            max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 17%; display:inline-block;"> HP<input id="hp2" type="text" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">IVHP<input value="31" type="number" id="ivhp2"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVHP<input value="0" type="number" id="evhp2" min="0"
+            max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block;">Attack<input id="atk" type="text" /> </p>
+    <p style="text-align: right; width: 17%; display:inline-block">IVATK<input value="31" type="number" id="ivatk1"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVATK<input value="0" type="number" id="evatk1"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 17%; display:inline-block;"> ATK<input id="atk2" type="text" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">IVATK<input value="31" type="number" id="ivatk2"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVATK<input value="0" type="number" id="evatk2"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block;">DEF<input id="def" type="text" /> </p>
+    <p style="text-align: right; width: 17%; display:inline-block">IVDEF<input value="31" type="number" id="ivdef1"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVDEF<input value="0" type="number" id="evdef1"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 17%; display:inline-block;"> DEF<input id="def2" type="text" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">IVDEF<input value="31" type="number" id="ivdef2"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVDEF<input value="0" type="number" id="evdef2"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block;">Special Attack<input id="spatk" type="text" /> </p>
+    <p style="text-align: right; width: 17%; display:inline-block">IVSPATK<input value="31" type="number" id="ivspatk1"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVSPATK<input value="0" type="number" id="evspatk1"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 17%; display:inline-block;"> Special Attack<input id="spatk2" type="text" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">IVSPATK<input value="31" type="number" id="ivspatk2"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVSPATK<input value="0" type="number" id="evspatk2"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block;">Special Defense<input id="spdef" type="text" /> </p>
+    <p style="text-align: right; width: 17%; display:inline-block">IVSPDEF<input value="31" type="number" id="ivspdef1"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVSPDEF<input value="0" type="number" id="evspdef1"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: right; width: 17%; display:inline-block;"> Special Defense<input id="spdef2" type="text" />
+    </p>
+    <p style="text-align: right; width: 16%; display:inline-block">IVSPDEF<input value="31" type="number" id="ivspdef2"
+            min="0" max="31" onkeyup="if(value<0) value=0; if(value>31) value=31" /></p>
+    <p style="text-align: right; width: 16%; display:inline-block">EVSPDEF<input value="0" type="number" id="evspdef2"
+            min="0" max="252" onkeyup="if(value<0) value=0; if(value>252) value=252" step="4" /></p>
+    <p style="text-align: left; width: 49%; display:inline-block;"> Selected Move<input id="selmove1" type="text" /></p>
+    <p style="text-align: right; width: 50%; display:inline-block;"> Selected Move<input id="selmove2" type="text" />
+    </p>
+
+
+
+    <p style="text-align: center; width: 100%;"><button type="button" onclick="selectmove()">Select Move</button></p>
+    <p style="text-align: center; width: 100%;"><button type="button" onclick="attack()">Attack</button></p>
+
+
+    <!--100=lvl, 40=bp-->
+
+    <p>
+        <input id="amount" type="text" />
+        <input id="amount2" type="text" style="float: right" />
+    </p>
+
+    <script src="pokemon1.js"></script>
+    <script src="pokemon2.js"></script>
+    <script src="cancel2.js"></script>
+    <script src="moves1.js"></script>
+    <script src="cancel1.js"></script>
+    <script src="scripts.js"></script>
+    <script src="fetch.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+    </head>
+    <body> 
+        <tr>
+            <th> Pokemon 1</th>
+            <th><div class="dropdown">
+                <button class="dropbtn">Pokemon
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Bulbasaur</a>
+                  <a href="#">Charmander</a>
+                  <a href="#">Squirtle</a>
+                </div>
+              </div>
+            </th>
+        </body>
+</html>
